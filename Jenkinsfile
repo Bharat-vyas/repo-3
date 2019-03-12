@@ -15,18 +15,5 @@ node {
       
     }
 
-      // sh 'docker run -itd bharatvas/image1'      
-      }
-      stage('Push image to dockerhub'){
-      withDockerRegistry(credentialsId: '996ea76f-df01-4824-9db3-0bc3a7c24c21') { // Through Snippet Generator "WithDockerRegistry"
-      // Or we can use one more simple method --> Through Snippet Generator"WithCredentials : Bind credentials to variables" 
-      // we can use it wherever we need to provide any kind of password or credentials either PASSWORD OR KEYS 
-      // EXAMPLE -->select WithCredentials then click on add select either KEY or USERNAME_PASSWORD or just SECRET TEXT(as we just want to hide our password) whatever you want
-      // it will bind those credentials to a variable and call the variable 
-      //     withCredentials([string(credentialsId: 'cdeds', variable: 'dockerhub')]) {  } 
-      //     sh 'docker login -u bharatvyas -p $(dockerhub)'   --> calling the variable that contain the password
-      sh 'docker push bharatvyas/image1'
-      }
-      }
-
+    
       
