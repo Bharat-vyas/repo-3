@@ -7,10 +7,14 @@ node {
       sh 'docker ps -a'
       }
       
-      def customImage = docker.build("my-image:${env.BUILD_ID}")
+      withDockerRegistry(credentialsId: '996ea76f-df01-4824-9db3-0bc3a7c24c21') {
+      def image1 = docker.build("my-image:${env.BUILD_ID}")
       //def testImage = docker.build("test-image", "./dockerfiles/test")  If Dockerfile is in other directory
-    //customImage.inside {
+      //customImage.inside {
       //  sh 'ls'
-   // }
+      // }
+      image1.push()      /* Push the container to the custom Registry (the registry whoom credential we have used in withDockerRegistry, can be either Dockerhub credentials or can be Private Registry credentials ) */
       
-}
+      } //withregistry close       
+
+} //node close
