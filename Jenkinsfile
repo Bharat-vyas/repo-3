@@ -7,8 +7,8 @@ node {
       sh 'docker ps -a'
       }
       
-      def customImage = docker.build("my-image")
-
+      def customImage = docker.build("my-image:${env.BUILD_ID}")
+      //def testImage = docker.build("test-image", "./dockerfiles/test")  If Dockerfile is in other directory
     //customImage.inside {
       //  sh 'ls'
    // }
