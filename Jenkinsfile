@@ -6,10 +6,11 @@ node {
       stage('view all docker containers'){
       sh 'docker ps -a'
       }
-      stage('Create Docker Image and run container out of it in local system'){
-      //sh 'docker build -t bharatvyas/image1 .'
-      docker.image('ubuntu').withRun('-p 9000:9000') { c ->
-        sh 'ls'
-    }
-   }
+      
+      def customImage = docker.build("my-image")
+
+    //customImage.inside {
+      //  sh 'ls'
+   // }
+      
 }
