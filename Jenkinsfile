@@ -11,9 +11,4 @@ node {
       docker.image('ubuntu').withRun('-p 9000:9000') { c ->
         sh 'ls'
     }
-
-      
-    }
-
-    
-      
+   }
