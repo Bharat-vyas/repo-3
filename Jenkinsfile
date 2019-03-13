@@ -11,9 +11,7 @@ node {
       def image1 = docker.build("bharatvyas/my-image:${env.BUILD_ID}").inside {
 sh "ls -al"
       }
-            withDockerContainer('ubuntu') {
-            sh 'ls'
-            }
+          
       //def testImage = docker.build("test-image", "./dockerfiles/test")  If Dockerfile is in other directory
       //customImage.inside {
       //  sh 'ls'
