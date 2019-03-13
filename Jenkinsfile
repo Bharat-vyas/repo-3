@@ -8,11 +8,7 @@ node {
       }
       
       withDockerRegistry(credentialsId: '996ea76f-df01-4824-9db3-0bc3a7c24c21') {
-      def image1 = docker.build("bharatvyas/my-image:${env.BUILD_ID}").inside("-v /home/foo.txt:/foo.txt") { c ->
-                sh 'cat /foo.txt' // we can mount any file from host
-                sh 'cat test.txt' // we can access files from workspace
-                sh 'echo "modified-inside-container" > test.txt' // we can modify files in workspace 
-                }
+      def image1 = docker.build("bharatvyas/my-image:${env.BUILD_ID}")
       //def testImage = docker.build("test-image", "./dockerfiles/test")  If Dockerfile is in other directory
       //customImage.inside {
       //  sh 'ls'
@@ -21,4 +17,4 @@ node {
       
       } //withregistry close       
 
-//} //node close
+ } //node close
