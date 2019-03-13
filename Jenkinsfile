@@ -1,6 +1,6 @@
 node {
       stage('Scm Checkout'){
-      git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/repo-2.git'
+      git credentialsId: '70879577-c865-415b-b4cb-0c6e86882477', url: 'https://www.github.com/Bharat-vyas/repo-3.git'
       // Through Snippet Generator "Checkout: checkout form version controller"
       }
       stage('view all Images'){
@@ -14,8 +14,8 @@ node {
       //  sh 'ls'
       // }
       image1.push()      /* Push the container to the custom Registry (the registry whoom credential we have used in withDockerRegistry, can be either Dockerhub credentials or can be Private Registry credentials ) */
-      cleanWs cleanWhenNotBuilt: false, cleanWhenSuccess: false
-      properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '4'))])
+      //cleanWs cleanWhenNotBuilt: false, cleanWhenSuccess: false
+      //properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '4'))])
       } //withregistry close       
 
  } //node close
