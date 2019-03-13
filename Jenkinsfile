@@ -8,7 +8,8 @@ node {
       }
       
       withDockerRegistry(credentialsId: '996ea76f-df01-4824-9db3-0bc3a7c24c21') {
-      def image1 = docker.build("bharatvyas/my-image:${env.BUILD_ID}")
+      def image1 = docker.build("bharatvyas/my-image:${env.BUILD_ID}").inside {
+sh "ls -al"
             withDockerContainer('ubuntu') {
             sh 'ls'
             }
