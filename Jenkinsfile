@@ -14,8 +14,8 @@ node {
       //  sh 'ls'
       // }
       image1.push()      /* Push the container to the custom Registry (the registry whoom credential we have used in withDockerRegistry, can be either Dockerhub credentials or can be Private Registry credentials ) */
-      //cleanWs cleanWhenNotBuilt: false, cleanWhenSuccess: false
-      //properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '4'))])
+      cleanWs cleanWhenNotBuilt: false, cleanWhenSuccess: false
+      properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '4'))])
       } //withregistry close       
 
  } //node close
