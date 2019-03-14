@@ -8,7 +8,7 @@ node {
       stage ('build')
       {
       withDockerRegistry(credentialsId: '996ea76f-df01-4824-9db3-0bc3a7c24c21') {     
-      def image1 = docker.build("bharatvyas/drinksavvy-api:v1", "--file docker/Dockerfile .")     
+      def image1 = docker.build("dockerregistry.ecosmob.net:5000/testimage:v1", "--file docker/Dockerfile .")     
        }
       }
       
