@@ -8,9 +8,7 @@ node {
       stage ('build')
       {
       withDockerRegistry(credentialsId: '996ea76f-df01-4824-9db3-0bc3a7c24c21') {     
-      def image1 = docker.build("bharatvyas/drinksavvy-api:v1", "--file docker/Dockerfile .")
-             
-               
+      def image1 = docker.build("bharatvyas/drinksavvy-api:v1", "--file docker/Dockerfile .")     
        }
       }
       stage ('push')
@@ -20,8 +18,7 @@ node {
             withDockerRegistry(credentialsId: 'privatereg', url: 'dockerregistry.ecosmob.net:5000') {
                   image1.push() 
       }
-            
-            
+      }
       }
       cleanWs cleanWhenNotBuilt: false, cleanWhenSuccess: false
       properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '4'))])
