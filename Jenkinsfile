@@ -15,8 +15,8 @@ node {
       stage ('push')
       {
       //withDockerServer([uri: "dockerregistry.ecosmob.net:5000"]) {
-      docker.withServer('tcp://dockerregistry.ecosmob.net:5000'){
-      withDockerRegistry(credentialsId: 'privatereg') {
+      //docker.withServer('tcp://dockerregistry.ecosmob.net:5000'){
+      withDockerRegistry(credentialsId: 'privatereg', url: 'https://dockerregistry.ecosmob.net:5000') {
             image1.push()
       }
       }
