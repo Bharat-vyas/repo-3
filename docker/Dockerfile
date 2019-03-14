@@ -1,3 +1,3 @@
 FROM ubuntu
 RUN ls
-COPY ../dummyfile .
+COPY dummyfile .
