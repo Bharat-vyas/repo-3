@@ -5,10 +5,13 @@ node {
       stage('view all Images'){
       sh 'docker images'
       } 
+      stage ('build')
+      {
       withDockerRegistry(credentialsId: '996ea76f-df01-4824-9db3-0bc3a7c24c21') {     
       def image1 = docker.build("bharatvyas/drinksavvy-api:v1", "-f Dockerfile ./docker/")
               image1.push()  
        }
+      }
       cleanWs cleanWhenNotBuilt: false, cleanWhenSuccess: false
       properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '4'))])
       } 
