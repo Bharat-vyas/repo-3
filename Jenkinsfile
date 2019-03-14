@@ -11,15 +11,7 @@ node {
       def image1 = docker.build("bharatvyas/drinksavvy-api:v1", "--file docker/Dockerfile .")     
        }
       }
-      stage ('push')
-      {
-      //docker.withServer('dockerregistry.ecosmob.net:5000')
-            withDockerServer([uri: "tcp://dockerregistry.ecosmob.net:5000"]) {
-            withDockerRegistry(credentialsId: 'privatereg', url: 'dockerregistry.ecosmob.net:5000') {
-                  image1.push() 
-      }
-      }
-      }
+
       cleanWs cleanWhenNotBuilt: false, cleanWhenSuccess: false
       properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '4'))])
       } 
