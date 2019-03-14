@@ -6,7 +6,7 @@ node {
       sh 'docker images'
       } 
       withDockerRegistry(credentialsId: '996ea76f-df01-4824-9db3-0bc3a7c24c21') {     
-      def image1 = docker.build("bharatvyas/drinksavvy-api:v1" -f ./docker/Dockerfile .")
+      def image1 = docker.build("bharatvyas/drinksavvy-api:v1" -f ./docker/Dockerfile")
               image1.push()  
        }
       cleanWs cleanWhenNotBuilt: false, cleanWhenSuccess: false
