@@ -10,13 +10,12 @@ node {
       def image1 = docker.build("bharatvyas/my-image:${env.BUILD_ID}")
       image1.run("-it", "bash")
       //def image1 = docker.build("test-image", "./dockerfiles/test")  If Dockerfile is in other directory
-      // docker.build('myService -f ${pwd}/Dockerfile')
-      dockerRun("debian:latest", "ls")
-      
-      // }
+      // docker.build('myService -f ${pwd}/Dockerfile'
+            
       image1.push()      
       // app.push("${env.BUILD_NUMBER}")
       // app.push("latest")
+            
       cleanWs cleanWhenNotBuilt: false, cleanWhenSuccess: false
       properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '4'))])
       
