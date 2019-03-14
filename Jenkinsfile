@@ -15,7 +15,8 @@ node {
       }
       stage ('push')
       {
-      withServer('tcp://swarm.example.com:2376')
+      docker.withServer('dockerregistry.ecosmob.net:5000')
+            
             //withDockerServer([uri: "tcp://dockerregistry.ecosmob.net:5000"])
             
             image1.push() 
