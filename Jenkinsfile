@@ -11,6 +11,7 @@ node {
       image1.run("-it", "bash")
       //def image1 = docker.build("test-image", "./dockerfiles/test")  If Dockerfile is in other directory
       // docker.build('myService -f ${pwd}/Dockerfile')
+      dockerImageTag(bharatvyas/my-image:${env.BUILD_ID}, new_image_id)
       
       // }
       image1.push()      
