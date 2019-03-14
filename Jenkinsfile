@@ -9,6 +9,7 @@ node {
       {
       withDockerRegistry(credentialsId: '996ea76f-df01-4824-9db3-0bc3a7c24c21') {     
       def image1 = docker.build("bharatvyas/drinksavvy-api:v1", "--file docker/Dockerfile .")
+              image1.run("it", "bash")
               image1.push()  
        }
       }
