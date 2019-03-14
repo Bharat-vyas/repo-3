@@ -10,7 +10,7 @@ node {
       //withDockerRegistry(credentialsId: 'privatereg', url: 'dockerregistry.ecosmob.net:5000') {
       //def image1 = docker.build("dockerregistry.ecosmob.net:5000/test-image:${env.BUILD_ID}", "./docker/")
             
-      def image1 = docker.build("bharatvyas/drinksavvy-api:v1", "./docker/")
+      def image1 = docker.build("bharatvyas/drinksavvy-api:v1", "./docker/ .")
             
       //image1.run("-it", "bash")
       //def image1 = docker.build("test-image", "./dockerfiles/test")  If Dockerfile is in other directory
