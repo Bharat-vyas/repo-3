@@ -35,4 +35,4 @@ node {
       properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '4'))])
       
       } //withregistry close       
- } //node close
+  //node close
