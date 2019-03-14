@@ -18,7 +18,7 @@ node {
       //docker.withServer('tcp://dockerregistry.ecosmob.net:5000'){
       withDockerRegistry(credentialsId: 'privatereg', url: 'https://dockerregistry.ecosmob.net:5000') {
             image1.push()
-      }
+      //}
       }
       }
              
