@@ -24,6 +24,6 @@ node {
       //}
       //}
              
-      cleanWs cleanWhenNotBuilt: false, cleanWhenSuccess: false
-      properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '4'))])
+      //cleanWs cleanWhenNotBuilt: false, cleanWhenSuccess: false
+      //properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '4'))])
       } 
