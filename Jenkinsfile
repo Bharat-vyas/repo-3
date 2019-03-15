@@ -5,7 +5,7 @@ node {
       stage('view all Images'){
       sh 'docker images'
       } 
-      stage ('build')
+      stage ('Build and Push')
       {
       withDockerRegistry(credentialsId: 'privatereg', url: 'https://dockerregistry.ecosmob.net:5000') {   
       def image1 = docker.build("dockerregistry.ecosmob.net:5000/testimage:v1", "--file docker/Dockerfile .")   
