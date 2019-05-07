@@ -4,7 +4,8 @@ node {
       }
       stage('view all Images'){
       sh 'docker images'
-      sh 'sed -i '2 s/web_chat.*/${env.BUILD_ID}/' docker-compose.yml'
+      sh 'ls -l'
+      //sh 'sed -i '2 s/web_chat.*/${env.BUILD_ID}/' docker-compose.yml'
       } 
       //stage ('Build and Push')
       //{
