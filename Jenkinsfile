@@ -5,15 +5,14 @@ node {
       stage('view all Images'){
       sh 'docker images'
       sh 'ls -l'
-      sh 'sed -i '2 s/web_chat/hello/' docker-compose.yml'
-      } 
-      //stage ('Build and Push')
-      //{
-      //withDockerRegistry(credentialsId: 'privatereg', url: 'https://dockerregistry.ecosmob.net:5000') {   
-      //def image1 = docker.build("dockerregistry.ecosmob.net:5000/testimage:${env.BUILD_ID}", "--file docker/Dockerfile .")   
-      //       image1.push()
-       //}
-       //}
+     } 
+      stage ('Build and Push')
+      {
+      withDockerRegistry(credentialsId: 'privatereg', url: 'https://dockerregistry.ecosmob.net:5000') {   
+      def image1 = docker.build("dockerregistry.ecosmob.net:5000/testimage:${env.BUILD_ID}", "--file docker/Dockerfile .")   
+             image1.push()
+       }
+       }
 }
       
      // stage ('push')
