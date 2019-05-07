@@ -12,6 +12,11 @@ node {
              image1.push()
        }
       }
+      stage ('pull')
+      {
+      sh 'docker pull dockerregistry.ecosmob.net:5000/testimage:${env.BUILD_ID}'
+      sh 'docker images'
+      }
 }
       
      // stage ('push')
