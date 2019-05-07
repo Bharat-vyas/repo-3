@@ -8,7 +8,7 @@ node {
       stage ('Build and Push')
       {
       withDockerRegistry(credentialsId: 'privatereg', url: 'https://dockerregistry.ecosmob.net:5000') {   
-      def image1 = docker.build("dockerregistry.ecosmob.net:5000/testimage:v1", "--file docker/Dockerfile .")   
+      def image1 = docker.build("dockerregistry.ecosmob.net:5000/testimage:${env.BUILD_ID}", "--file docker/Dockerfile .")   
              image1.push()
        }
       }
