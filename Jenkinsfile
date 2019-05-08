@@ -8,7 +8,7 @@ node {
      } 
       stage('sed command')
       {
-      sh 'cp docker-compose.yml new${env.BUILD_ID}'
+      sh 'cp docker-compose.yml ${env.BUILD_ID}'
       }
       /*stage ('Build and Push')
       {
