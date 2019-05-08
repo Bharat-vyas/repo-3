@@ -8,7 +8,9 @@ node {
      } 
       stage('sed command')
       {
-      sh 'cp docker-compose.yml ${env.BUILD_ID}'
+      sh ("""
+sed -i '2 s/web_chat.*/${env.BUILD_ID}/' docker-compose.yml
+""")
       }
       /*stage ('Build and Push')
       {
