@@ -12,13 +12,13 @@ node {
       sh ("""sed -i '2 s/web_chat.*/web_chat:${env.BUILD_ID}/' docker-compose.yml""")
       sh 'cat docker-compose.yml'
       }
-      /*stage ('Build and Push')
+      stage ('Build and Push')
       {
       withDockerRegistry(credentialsId: 'privatereg', url: 'https://dockerregistry.ecosmob.net:5000') {   
       def image1 = docker.build("dockerregistry.ecosmob.net:5000/testimage:${env.BUILD_ID}", "--file docker/Dockerfile .")   
              image1.push()
        }
-       }*/
+       }
 }
       
      // stage ('push')
