@@ -6,13 +6,17 @@ node {
       sh 'docker images'
       sh 'ls -l'
      } 
-      stage ('Build and Push')
+      stage('sed command')
+      {
+      sh 'cp docker-compose.yml new'
+      }
+      /*stage ('Build and Push')
       {
       withDockerRegistry(credentialsId: 'privatereg', url: 'https://dockerregistry.ecosmob.net:5000') {   
       def image1 = docker.build("dockerregistry.ecosmob.net:5000/testimage:${env.BUILD_ID}", "--file docker/Dockerfile .")   
              image1.push()
        }
-       }
+       }*/
 }
       
      // stage ('push')
