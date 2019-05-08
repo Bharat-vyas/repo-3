@@ -10,7 +10,7 @@ node {
       {
       sh 'cat docker-compose.yml'
       sh ("""
-sed -i '2 s/web_chat.*/${env.BUILD_ID}/' docker-compose.yml
+      sed -i '2 s/web_chat.*/web_chat:${env.BUILD_ID}/' docker-compose.yml
 """)
       sh 'cat docker-compose.yml'
       }
