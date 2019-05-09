@@ -24,7 +24,7 @@ node {
   stage('Pull and Deploy Web Image') 
   {
     sshCommand remote: remote, command: "ls /home"
-    //sshPut remote: remote, from: './docker/web/docker-compose.yml', into: "${webPath}"
+    sshPut remote: remote, from: './testjenkins', into: '/home'
     //sshCommand remote: remote, command: "docker-compose -f $webPath/docker-compose.yml down; sleep 5; docker-compose -f $webPath/docker-compose.yml up -d ; docker ps"
   }
 }
