@@ -11,7 +11,11 @@ node {
       sh 'cat docker-compose.yml'
       sh ("""sed -i '2 s/web_chat.*/web_chat:${env.BUILD_ID}/' docker-compose.yml""")
       sh 'cat docker-compose.yml'
+      sshPublisher(publishers: [sshPublisherDesc(configName: '69_server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ls', flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'testjenkins')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+      
       }
+
+      
       withCredentials([usernamePassword(credentialsId: '69_server', passwordVariable: 'PassWord', usernameVariable: 'UserName')]) {
       def remote = [:]
   remote.name = 'VM'
