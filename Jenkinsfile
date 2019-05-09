@@ -11,25 +11,26 @@ node {
       sh 'cat docker-compose.yml'
       sh ("""sed -i '2 s/web_chat.*/web_chat:${env.BUILD_ID}/' docker-compose.yml""")
       sh 'cat docker-compose.yml'
-      sshPublisher(publishers: [sshPublisherDesc(configName: '69_server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ls', flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'testjenkins')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-      
       }
 
-      
-      withCredentials([usernamePassword(credentialsId: '69_server', passwordVariable: 'PassWord', usernameVariable: 'UserName')]) {
-      def remote = [:]
+      withCredentials([usernamePassword(credentialsId: '69_server', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) 
+{
+  def remote = [:]
   remote.name = 'VM'
   remote.host = '172.16.16.69'
-  remote.user = "${UserName}"
-  remote.password = "${PassWord}"
+  remote.user = "${USERNAME}"
+  remote.password = "${PASSWORD}"
   remote.allowAnyHosts = true
-            stage('scp')
-            {
-            sshPut remote: remote, from: './testjenkins', into: "/home"
-            }
-            // some block
+  stage('Pull and Deploy Web Image') 
+  {
+    sshCommand remote: remote, command: "cd /home ; ls ; docker images ;"
+    //sshPut remote: remote, from: './docker/web/docker-compose.yml', into: "${webPath}"
+    //sshCommand remote: remote, command: "docker-compose -f $webPath/docker-compose.yml down; sleep 5; docker-compose -f $webPath/docker-compose.yml up -d ; docker ps"
+  }
+}
+     
       
-      }
+ 
      /* stage ('Build and Push')
       {
       withDockerRegistry(credentialsId: 'privatereg', url: 'https://dockerregistry.ecosmob.net:5000') {   
