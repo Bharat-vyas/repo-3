@@ -11,7 +11,7 @@ node {
       sh 'cat docker-compose.yml'
       sh ("""sed -i '2 s/web_chat.*/web_chat:${env.BUILD_ID}/' docker-compose.yml""")
       sh 'cat docker-compose.yml'
-      sshPublisher(publishers: [sshPublisherDesc(configName: '69_server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'cat /home/testjenkins', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'testjenkins')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+      sshPublisher(publishers: [sshPublisherDesc(configName: '69_server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'testjenkins')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
       }
      /* stage ('Build and Push')
       {
