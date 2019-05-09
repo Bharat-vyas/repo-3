@@ -11,6 +11,7 @@ node {
       sh 'cat docker-compose.yml'
       sh ("""sed -i '2 s/web_chat.*/web_chat:${env.BUILD_ID}/' docker-compose.yml""")
       sh 'cat docker-compose.yml'
+      }
       withCredentials([usernamePassword(credentialsId: '69_server', passwordVariable: 'PassWord', usernameVariable: 'UserName')]) {
       def remote = [:]
   remote.name = 'VM'
@@ -23,7 +24,7 @@ node {
             sshPut remote: remote, from: './testjenkins', into: "/home"
             }
             // some block
-      }
+      
       }
      /* stage ('Build and Push')
       {
