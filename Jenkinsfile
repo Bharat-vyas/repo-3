@@ -23,7 +23,7 @@ node {
   remote.allowAnyHosts = true
   stage('Pull and Deploy Web Image') 
   {
-    //sshCommand remote: remote, command: "docker images"
+    sshCommand remote: remote, command: "ls /home"
     //sshPut remote: remote, from: './docker/web/docker-compose.yml', into: "${webPath}"
     //sshCommand remote: remote, command: "docker-compose -f $webPath/docker-compose.yml down; sleep 5; docker-compose -f $webPath/docker-compose.yml up -d ; docker ps"
   }
