@@ -24,8 +24,8 @@ node {
   stage('Pull and Deploy Web Image') 
   {
     //have to use ssh pipeline setup plugin to use sscCommand or sshPut type of functionalities.
-    sshCommand remote: remote, command: "ls /home"
-    sshPut remote: remote, from: '../testjenkins', into: '/home'
+    sshCommand remote: remote, command: "ls /home; hostname"
+    //sshPut remote: remote, from: '../testjenkins', into: '/home'
     //sshCommand remote: remote, command: "docker-compose -f $webPath/docker-compose.yml down; sleep 5; docker-compose -f $webPath/docker-compose.yml up -d ; docker ps"
   }
 }
