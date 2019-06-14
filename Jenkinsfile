@@ -6,9 +6,9 @@ node {
       //sh 'docker images'
       //sh 'ls -l'
       echo JOB_NAME;
-      def scannerHome = env.JOB_NAME.replaceAll('%2' \. '/','.');
+      def scannerHome = env.JOB_NAME.replaceAll('%2','.');
      // def scannerHome3 = scannerHome.replace('%2','.');
-            //def scannerHome3 = env.JOB_NAME.replaceAll("[% /]", ".");
+            def scannerHome3 = scannerHome.JOB_NAME.replaceAll("[/]", ".");
            // def scannerHome2 = scannerHome3.replaceAll('.2','.');
             //echo scannerHome2;
       echo scannerHome;
