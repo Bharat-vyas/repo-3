@@ -5,7 +5,8 @@ node {
       stage('view all Images'){
       //sh 'docker images'
       //sh 'ls -l'
-      def scannerHome = JOB_NAME.replaceAll('%','.');
+      echo JOB_NAME;
+      def scannerHome = env.JOB_NAME.replaceAll('%','.');
      } 
       
       //stage('sed command')
