@@ -8,20 +8,20 @@ node {
       echo JOB_NAME;
       def scannerHome = env.JOB_NAME.replaceAll('%','.');
      // def scannerHome2 = scannerHome.replaceAll('/','.');
-      def scannerHome3 = env.JOB_NAME.replaceAll("[%/]", ".");
+      def scannerHome3 = env.JOB_NAME.replaceAll("[%2 /]", ".");
       //echo scannerHome2;
       echo scannerHome3;
               
      } 
       
-      stage('sed command')
-      {
-      sh 'cat docker-compose.yml'
-      sh ("""sed -i '2 s/web_chat.*/web_chat:${env.BUILD_ID}/' docker-compose.yml""")
-      sh 'cat docker-compose.yml'
-      }
+      //stage('sed command')
+      //{
+      //s/h 'cat docker-compose.yml'
+      //sh ("""sed -i '2 s/web_chat.*/web_chat:${env.BUILD_ID}/' docker-compose.yml""")
+      //sh 'cat docker-compose.yml'
+      //}
 
-
+/*
       withCredentials([usernamePassword(credentialsId: '69_server', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) 
 {
   def remote = [:]
@@ -38,7 +38,7 @@ node {
     //sshCommand remote: remote, command: "docker-compose -f $webPath/docker-compose.yml down; sleep 5; docker-compose -f $webPath/docker-compose.yml up -d ; docker ps"
   }
 }
-     
+     */
       
  
      /* stage ('Build and Push')
