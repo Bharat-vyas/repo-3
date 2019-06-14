@@ -11,7 +11,7 @@ node {
             def scannerHome3 = env.JOB_NAME.replaceAll("[% /]", ".");
             def scannerHome2 = scannerHome3.replaceAll('.2','.');
             //echo scannerHome2;
-      echo scannerHome3;
+      echo scannerHome2;
               
      } 
       
