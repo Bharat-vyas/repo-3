@@ -21,7 +21,7 @@ node {
       sh 'cat docker-compose.yml'
       }
 
-/*
+
       withCredentials([usernamePassword(credentialsId: '69_server', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) 
 {
   def remote = [:]
@@ -39,7 +39,7 @@ node {
   }
 }
      
-      /*
+      
  
      /* stage ('Build and Push')
       {
