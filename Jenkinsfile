@@ -9,6 +9,15 @@ node {
       def scannerHome = env.JOB_NAME.replaceAll('%','.');
       def scannerHome2 = scannerHome.replaceAll('/','.');
       echo scannerHome2;
+            
+            
+            def txt = "Generated on 30-10-2009 with Groovy."
+def replacedTxt = txt.replaceAll(/.*(\d{2}-\d{2}-\d{4}).*(Gr.*)./) { all, date, lang ->
+    def dateObj = Date.parse('dd-MM-yyyy', date)
+    "The text '$all' was created with $lang on a ${dateObj.format('EEEE')}."
+}
+            
+            
      } 
       
       //stage('sed command')
