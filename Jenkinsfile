@@ -12,13 +12,7 @@ node {
       echo scannerHome2;
       echo scannerHome3;
             
-            def txt = "Generated on 30-10-2009 with Groovy."
-def replacedTxt = txt.replaceAll(/.*(\d{2}-\d{2}-\d{4}).*(Gr.*)./) 
-    //def dateObj = Date.parse('dd-MM-yyyy', date)
-      echo txt;
-      echo replacedTxt;
-      //echo dateObj;
-//}
+
             
             
      } 
