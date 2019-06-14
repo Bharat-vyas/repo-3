@@ -8,7 +8,7 @@ node {
       echo JOB_NAME;
       def scannerHome = env.JOB_NAME.replaceAll('%','.');
      // def scannerHome2 = scannerHome.replaceAll('/','.');
-      def scannerHome3 = env.JOB_NAME.replaceAll("[%2 \t /]", ".");
+      def scannerHome3 = env.JOB_NAME.replaceAll("["%2" , "/"]", ".");
       //echo scannerHome2;
       echo scannerHome3;
               
