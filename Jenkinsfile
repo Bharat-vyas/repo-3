@@ -11,18 +11,15 @@ node {
       def scannerHome3 = env.JOB_NAME.replaceAll("[%/]", ".");
       //echo scannerHome2;
       echo scannerHome3;
-            
-
-            
-            
+              
      } 
       
-      //stage('sed command')
-      //{
-      //sh 'cat docker-compose.yml'
-      //sh ("""sed -i '2 s/web_chat.*/web_chat:${env.BUILD_ID}/' docker-compose.yml""")
-      //sh 'cat docker-compose.yml'
-      //}
+      stage('sed command')
+      {
+      sh 'cat docker-compose.yml'
+      sh ("""sed -i '2 s/web_chat.*/web_chat:${env.BUILD_ID}/' docker-compose.yml""")
+      sh 'cat docker-compose.yml'
+      }
 
 /*
       withCredentials([usernamePassword(credentialsId: '69_server', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) 
