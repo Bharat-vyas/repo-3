@@ -17,7 +17,7 @@ def replacedTxt = txt.replaceAll(/.*(\d{2}-\d{2}-\d{4}).*(Gr.*)./)
       echo txt;
       echo replacedTxt;
       //echo dateObj;
-}
+//}
             
             
      } 
