@@ -8,8 +8,9 @@ node {
       echo JOB_NAME;
       def scannerHome = env.JOB_NAME.replaceAll('%','.');
       def scannerHome2 = scannerHome.replaceAll('/','.');
+      def scannerHome3 = env.JOB_NAME.replaceAll("[%/]", "");
       echo scannerHome2;
-            
+      echo scannerHome3;
             
             def txt = "Generated on 30-10-2009 with Groovy."
 def replacedTxt = txt.replaceAll(/.*(\d{2}-\d{2}-\d{4}).*(Gr.*)./) 
