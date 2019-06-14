@@ -7,6 +7,7 @@ node {
       //sh 'ls -l'
       echo JOB_NAME;
       def scannerHome = env.JOB_NAME.replaceAll('%','.');
+      echo scannerHome;
      } 
       
       //stage('sed command')
