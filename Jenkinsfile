@@ -7,7 +7,7 @@ node {
       //sh 'ls -l'
       echo JOB_NAME;
       def scannerHome = env.JOB_NAME.replaceAll('%','.');
-      def scannerHome2 = env.JOB_NAME.replaceAll('/','.');
+      def scannerHome2 = scannerHome.replaceAll('/','.');
       echo scannerHome2;
      } 
       
