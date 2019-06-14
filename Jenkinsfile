@@ -5,7 +5,7 @@ node {
       stage('view all Images'){
       //sh 'docker images'
       //sh 'ls -l'
-      def scannerHome = Ecosmob/ntcarfte-fte-android/feature%2FNPI-1719;
+      def scannerHome = Ecosmob/ntcarfte-fte-android/feature%2FNPI-1719.replaceAll('%','.');
      } 
       
       //stage('sed command')
