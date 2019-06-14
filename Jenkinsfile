@@ -6,13 +6,15 @@ node {
       sh 'docker images'
       sh 'ls -l'
      } 
-      stage('sed command')
-      {
-      sh 'cat docker-compose.yml'
-      sh ("""sed -i '2 s/web_chat.*/web_chat:${env.BUILD_ID}/' docker-compose.yml""")
-      sh 'cat docker-compose.yml'
-      }
+      
+      //stage('sed command')
+      //{
+      //sh 'cat docker-compose.yml'
+      //sh ("""sed -i '2 s/web_chat.*/web_chat:${env.BUILD_ID}/' docker-compose.yml""")
+      //sh 'cat docker-compose.yml'
+      //}
 
+/*
       withCredentials([usernamePassword(credentialsId: '69_server', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) 
 {
   def remote = [:]
@@ -30,7 +32,7 @@ node {
   }
 }
      
-      
+      /*
  
      /* stage ('Build and Push')
       {
